@@ -1,0 +1,134 @@
+<meta charset = 'utf-8'>
+<title>перевод градусов</title>
+<style>
+    h1{
+	  text-align: center;
+	  color: #6e56f1;
+	}
+	.big{
+	  border: 2px solid pink;
+	}
+	.small{
+	  display: block;
+	  margin-top: 40px;
+	}
+</style>
+                               <h1>Перевод градусов температуры</h1>
+
+<span class = 'small'>°C в -> °F</span>
+<div class = 'big'>
+    <p>Введите градусы Цельсия: <input type = 'text' class = 'cels' placeholder = 'Введите градусы'>
+    <p><button class = 'but'>Расчет!</button>
+
+<script>
+    let cel;	
+	let button = document.querySelector('.but');
+	let far; 
+	
+    button.onclick = function (){
+	      if(document.querySelector('.box1')) {document.querySelector('.box1').remove();}
+	      cel = Number(document.querySelector('.cels').value);	  
+          far = 1.8 * cel + 32;	
+          far = far.toFixed(1);		  
+		  let box1 = document.createElement('div');
+		  box1.classList.add('box1');
+          button.after(box1);
+		  box1.style.marginTop = '10px';	  
+          box1.style.width = '370px';
+          box1.style.height = '20px';  	        
+	      box1.style.border = '1px solid blue';
+	      box1.innerHTML = cel + '°C  это ' + far + '°F (градусов Фаренгейт)';
+		  box1.style.textAlign = 'center';
+		  box1.style.padding = '10px';
+    };	
+</script>
+</div>
+
+
+<span class = 'small'>°F в -> °C</span>
+<div class = 'big'>
+    <p>Введите градусы Фаренгейт: <input type = 'text' class = 'far2' placeholder = 'Введите градусы'>
+    <p><button class = 'but2'>Расчет!</button>
+
+<script>
+    let cel2;	
+	let button2 = document.querySelector('.but2');
+	let far2; 
+	
+    button2.onclick = function (){
+	      if(document.querySelector('.box2')) {document.querySelector('.box2').remove();}
+	      far2 = Number(document.querySelector('.far2').value);	  
+		  cel2 = (far2 - 32)/1.8;
+          cel2 = cel2.toFixed(1);		  
+		  let box2 = document.createElement('div');
+		  box2.classList.add('box2');
+          button2.after(box2);
+		  box2.style.marginTop = '10px';	  
+          box2.style.width = '370px';
+          box2.style.height = '20px';  	        
+	      box2.style.border = '1px solid blue';
+	      box2.innerHTML = far2 + '°F  это ' + cel2 + '°C (градусов Цельсия)';
+		  box2.style.textAlign = 'center';
+		  box2.style.padding = '10px';
+    };	
+</script>
+</div>
+
+
+<span class = 'small'>°C в -> K</span>
+<div class = 'big'>
+    <p>Введите градусы Цельсия: <input type = 'text' class = 'cel3' placeholder = 'Введите градусы'>
+    <p><button class = 'but3'>Расчет!</button>
+
+<script>
+    let cel3;	
+	let button3 = document.querySelector('.but3');
+	let k; 
+	
+    button3.onclick = function (){
+	      if(document.querySelector('.box3')) {document.querySelector('.box3').remove();}
+	      let cel3 = Number(document.querySelector('.cel3').value);	  
+		  k = cel3 + 273.15;
+          k = k.toFixed(2);		  
+		  let box3 = document.createElement('div');
+		  box3.classList.add('box3');
+          button3.after(box3);
+		  box3.style.marginTop = '10px';	  
+          box3.style.width = '370px';
+          box3.style.height = '20px';  	        
+	      box3.style.border = '1px solid blue';
+	      box3.innerHTML = cel3 + '°C  это ' + k + 'K (Кельвина)';
+		  box3.style.textAlign = 'center';
+		  box3.style.padding = '10px';
+    };	
+</script>
+</div>
+
+<span class = 'small'>K в -> °C</span>
+<div class = 'big'>
+    <p>Введите Кельвины: <input type = 'text' class = 'k2' placeholder = 'Кельвины'>
+    <p><button class = 'but4'>Расчет!</button>
+
+<script>
+    let cel4;	
+	let button4 = document.querySelector('.but4');
+	let k2; 
+	
+    button4.onclick = function (){
+	      if(document.querySelector('.box4')) {document.querySelector('.box4').remove();}
+	      let k2 = Number(document.querySelector('.k2').value);	  
+		  cel4 = k2 - 273.15;
+          cel4 = cel4.toFixed(2);		  
+		  let box4 = document.createElement('div');
+		  box4.classList.add('box4');
+          button4.after(box4);
+		  box4.style.marginTop = '10px';	  
+          box4.style.width = '370px';
+          box4.style.height = '20px';  	        
+	      box4.style.border = '1px solid blue';
+	      box4.innerHTML = k2 + 'K  это ' + cel4 + '°C (градуса Цельсия)';
+		  box4.style.textAlign = 'center';
+		  box4.style.padding = '10px';
+    };	
+</script>
+</div>
