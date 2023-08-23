@@ -1,0 +1,36 @@
+<meta charset = 'utf-8'>
+<style>
+   h1{
+      text-align: center;
+   }
+</style>
+<h1>Проверка формы js на заполнение полей</h1>
+
+<form class = 'f' method = 'post' action = '' name = 'form'>
+    <p>первое поле<br><input type = 'text' class = 'inp'>
+	<div class = 'box'></div>
+	<p>второе поле<br><input type = 'text' class = 'inp'>
+	<div class = 'box'></div>
+	<p>третье поле<br><input type = 'text' class = 'inp'>
+	<div class = 'box'></div>
+	<p>текстовая зона<br><textarea class = 'inp' cols = '50' rows = '20'></textarea>
+	<div class = 'box'></div>
+	<p><input type = 'submit' value = 'submit!' class = 'sub'>
+</form>
+
+<script>
+     let form = document.querySelector('.f');
+	 let inp = document.querySelectorAll('.inp');
+	 let div = document.querySelectorAll('.box');
+	 form.onsubmit = function (){	 
+	       for(let i = 0; i < inp.length; i++){
+		             if(inp[i].value == '') {div[i].textContent = 'Заполните поле для отправки формы!'; 
+					 div[i].style.width = '280px';
+	                 div[i].style.height = '15px';
+	                 div[i].style.color = 'darkred';
+					 event.preventDefault();} 
+					 else {div[i].style.display = 'none';}
+		   }
+		             
+	 }
+</script>
