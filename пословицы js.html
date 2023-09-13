@@ -1,0 +1,53 @@
+<html lang = 'ru'>
+<head>
+<meta charset = 'utf-8'>
+<title>пословицы</title>
+<style>
+   body{
+     display: flex;
+	 justify-content: center;
+     align-items: center;	 
+   }
+   .content{
+       width: 700px;
+	   height: 300px;
+	   border: 1px solid blue;
+	   display: block;
+	   text-align: center;
+	   font-weight: bold;
+	   font-style: italic;
+	   font-size: 30px;
+   }
+   .main{
+       text-align: center;
+   }
+   button{
+       width: 200px;
+	   height: 50px;
+	   border: 1px solid red;
+	   border-radius: 30px;
+	   cursor: pointer; 	   
+   }
+</style>
+</head>
+<body>
+   <div class = 'main'>
+   <div class = 'content'></div>
+   <p>
+   <button>Обновить пословицу!</button>
+   </div>
+   
+   <script>
+        let but = document.querySelector('button');
+		let area = document.querySelector('.content');
+		let arr = ['Многого захочешь — пораньше с постели вскочешь.','Промеж двери пальца не клади!',
+		'В чужую дуду не наиграешься.','Не гляди высоко: запорошишь око.','Не собрав клёпок, не собьёшь и бочки.',
+		'Думаешь так, а выйдет никак.','Против поличного нет отвода.',
+		'Чванство — не ум, а недоумье.','Сказал бы словечко, да волк недалечко.',
+		'Поезжай хоть куда: везде доля одна.'];
+		but.onclick = function (){
+		      area.textContent = arr[Math.floor(Math.random() * arr.length)];
+			}
+   </script>
+</body>
+</html>
