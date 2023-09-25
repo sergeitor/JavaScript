@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang = 'ru'>
+<head>
+    <title>угадайкаJS</title>
+	<meta charset = 'utf-8'>
+	<style>
+	     body{
+		    text-align: center;
+			font-size: 2em;
+		 }
+		 input{
+		    width: 200px;
+			height: 25px;
+			border: 1px solid green;
+			font-size: 0.85em;
+			color: SeaGreen;
+		 }
+	     button{
+		    background-color: yellow;
+			width: 300px;
+			height: 40px;
+		 }
+		 .block{
+		    color: red;
+			font-size: 5em;
+		 }
+		 .choice{
+		    display: none;
+		 }
+	</style>
+</head>
+<body>
+   <p>
+   <div class = 'mirage'>Введите загаданное слово: <input type = 'text' class = 'in'></div><br>
+   <div class = 'choice'>Введите букву слова: <input type = 'text' class = 'let'></div><br><br>
+   <button>НАЧАТЬ!</button><p>
+   
+   <div class = 'block'></div>
+   <script> 
+    if (confirm('Будете играть в угадайку JS?')) {
+    let button = document.querySelector('button');
+    const arr = [];
+    const errors = [];
+ 
+    function clickCheck(){
+        if(document.querySelector('.let').value.length != 1) {alert('Можно отгадывать только по 1 букве!'); return;}
+    }  
+ 
+    button.onclick = function() {
+        if (document.querySelector('.block').textContent) {document.querySelector('.block').textContent = '';} 
+        if(document.querySelector('.in').value == ''){alert('Нужно задать слово для разгадывания!'); return;}      
+        let word = document.querySelector('.in').value.toUpperCase(); 
+ 
+        if(word){
+            let letter = document.querySelector('.let').value.toUpperCase();
+            let choice = document.querySelector('.choice');
+            let mirage = document.querySelector('.mirage');
+            let block = document.querySelector('.block');
+            mirage.style.display = 'none';
+            choice.style.display = 'block';      
+       
+            if (arr.length == 0){
+                for (let j = 0; j < word.length; j++) {
+                    arr[j] = '- ';
+                }
+            }
+       
+            for (let k = 0; k < arr.length; k++) {            
+                block.textContent += arr[k];
+            }
+ 
+            document.querySelector('button').addEventListener('click',clickCheck);      
+ 
+            function checkLetter(letter) {
+                let correctGuess = false;
+                for (let i = 0; i < word.length; i++){
+                    if(word[i] == letter && letter.length == 1){ 
+                        arr[i] = letter;
+                        correctGuess = true;
+                    }
+                }
+           
+                if (!correctGuess && letter.length == 1 && errors.indexOf(letter) == -1){
+                    errors.push(letter);
+					alert('Ошибка! Количество ошибок: ' + errors.length);
+                }
+            }
+ 
+            checkLetter(letter);
+ 
+            block.textContent = '';
+ 
+            for(let m = 0; m < arr.length; m++){
+                block.textContent += arr[m]; 
+            }
+			
+			let counter = 0;
+			for(let d = 0; d < word.length; d++){
+			     if(arr[d] != '- '){
+				     counter++;
+				 }
+				 if(counter == word.length && errors.length <= 4){
+				     alert('Вы выиграли! Поздравляем!'); errors.length = 0; break;
+				 }
+				 if(errors.length > 4){
+				     alert('ВЫ ПРОИГРАЛИ!'); break;
+				 }
+			}
+ 
+            console.log('Количество ошибок: ' + errors.length);
+        }
+    }
+} 
+else {
+    document.body.style.display = 'none';
+}
+</script> 
+</body>
+</html>
