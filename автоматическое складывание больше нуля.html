@@ -1,0 +1,14 @@
+
+
+<script>
+    let num = Number(prompt('Введите число больше нуля: '));
+	for(let i = 0; true; i++){
+	    if(num <= 0) {alert('Ошибка! Число должно быть больше нуля,введите число снова!'); num = Number(prompt('Введите число: '));}
+		else {break;}
+	}
+	let sum = 0;
+	for(let i = 0; i <= num; i++){
+	    sum += i;
+	}
+	document.write('Сумма чисел от 1 до ' + num + ' равна: <b>' + sum + '</b>');
+</script>
