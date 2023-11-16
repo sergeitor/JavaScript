@@ -1,0 +1,23 @@
+<style>
+   
+</style>
+<body>
+   <button>кнопка</button><br><br>
+   <div></div>
+
+<script>
+     let but = document.querySelector('button');
+	 let block = document.querySelector('div');
+	 but.onclick = function (){
+	 block.style.width = '200px';
+	 block.style.textAlign = 'center';
+	 block.style.padding = '10px';
+	 block.style.border = '2px solid blue';
+	 block.textContent = 'привет, мир!';
+	 if(block.style.display == 'block'){
+		   block.style.display = 'none';
+	 }
+	 else {block.style.display = 'block';}
+};
+</script>
+</body>
